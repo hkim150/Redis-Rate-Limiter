@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"redisratelimiter/internal/server"
 
 	"github.com/spf13/cobra"
 )
@@ -10,7 +11,7 @@ import (
 var rootCmd = &cobra.Command{
 	Short: "Redis Rate Limiter",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Redis Rate Limiter is running...")
+		server.Run()
 	},
 }
 
