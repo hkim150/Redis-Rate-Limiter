@@ -4,3 +4,25 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+
+  server1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server1
+    ports:
+      - "8080:8080"
+    entrypoint: ["/usr/local/bin/redis-rate-limiter", "-p", "8080"]
+    depends_on:
+      - redis
+  
+  server2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: server2
+    ports:
+      - "8081:8081"
+    entrypoint: ["/usr/local/bin/redis-rate-limiter", "-p", "8081"]
+    depends_on:
+      - redis
