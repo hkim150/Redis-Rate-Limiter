@@ -27,7 +27,7 @@ as a microservice in distributed systems.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		port, _ := cmd.Flags().GetString("port")
 		redisAddr, _ := cmd.Flags().GetString("redis-addr")
-		redisPassword, _ := cmd.Flags().GetString("redis-password")x
+		redisPassword, _ := cmd.Flags().GetString("redis-password")
 		redisDB, _ := cmd.Flags().GetInt("redis-db")
 		
 		log.Printf("Starting Redis Rate Limiter with config:")
